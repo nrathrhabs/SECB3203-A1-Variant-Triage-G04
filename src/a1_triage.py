@@ -81,7 +81,16 @@ def triage(rows: list[dict], params: dict) -> list[dict]:
 
     The input rows and params are never modified.
     """
-    raise NotImplementedError("TODO: implement triage")
+    results = []
+
+    for row in rows:
+        decision, reason = classify_variant(row, params)
+        result = dict(row)
+        result["decision"] = decision
+        result["reason"] = reason
+        results.append(result)
+
+    return results
 
 
 def decision_counts(results: list[dict]) -> dict[str, int]:
