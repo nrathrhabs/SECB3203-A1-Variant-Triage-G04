@@ -1,0 +1,12 @@
+{
+  "min_depth": 12,
+  "min_quality": 80,
+  "priority_genes": [
+    "ATM",
+    "PTEN",
+    "EGFR",
+    "APC",
+    "BRCA2"
+  ],
+  "top_k": 5
+}

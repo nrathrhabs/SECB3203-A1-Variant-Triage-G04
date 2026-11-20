@@ -1,0 +1,6 @@
+# Course lint settings: do not edit (the marker checks that this file is unchanged).
+line-length = 110
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "W", "N", "B", "PLR2004"]
