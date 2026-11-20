@@ -43,7 +43,37 @@ def classify_variant(row: dict, params: dict) -> tuple[str, str]:
     Gene symbols and impact labels are compared after strip() and case folding.
     depth, quality and pos may arrive as text.
     """
-    raise NotImplementedError("TODO: implement classify_variant")
+    depth = int(row["depth"])
+    quality = int(row["quality"])
+    min_depth = int(params["min_depth"])
+    min_quality = int(params["min_quality"])
+
+    if depth < min_depth:
+        return "exclude", f"rule 1: depth QC: depth={depth} below min_depth={min_depth}"
+
+    if quality < min_quality:
+        return "exclude", f"rule 2: quality QC: quality={quality} below " f"min_quality={min_quality}"
+
+    gene = str(row["gene"]).strip()
+    gene_key = gene.casefold()
+    impact = str(row["impact"]).strip().casefold()
+
+    priority_genes = {str(priority_gene).strip().casefold() for priority_gene in params["priority_genes"]}
+    is_priority_gene = gene_key in priority_genes
+
+    if impact not in {"high", "moderate", "low", "modifier"}:
+        raise ValueError(f"Unsupported impact value: {row['impact']}")
+
+    if is_priority_gene and impact in {"high", "moderate"}:
+        return "prioritize", f"rule 3: priority gene {gene} with {impact} impact"
+
+    if is_priority_gene and impact in {"low", "modifier"}:
+        return "review", f"rule 4: priority gene {gene} with {impact} impact"
+
+    if not is_priority_gene and impact in {"high", "moderate"}:
+        return "review", f"rule 5: non-priority gene {gene} with {impact} impact"
+
+    return "exclude", f"rule 6: non-priority gene {gene} with {impact} impact"
 
 
 def triage(rows: list[dict], params: dict) -> list[dict]:
