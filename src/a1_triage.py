@@ -95,16 +95,35 @@ def triage(rows: list[dict], params: dict) -> list[dict]:
 
 def decision_counts(results: list[dict]) -> dict[str, int]:
     """Number of results per decision; keys are always prioritize, review, exclude (in order)."""
-    raise NotImplementedError("TODO: implement decision_counts")
+    counts = {
+        decision: 0
+        for decision in DECISIONS
+    }
 
+    for result in results:
+        decision = result["decision"]
+        counts[decision] += 1
+
+    return counts
 
 def impact_counts(results: list[dict]) -> dict[str, int]:
     """Impact counts over variants that were NOT excluded.
 
     Keys are always high, moderate, low, modifier (in that order), zeros included.
     """
-    raise NotImplementedError("TODO: implement impact_counts")
+    counts = {
+        impact: 0
+        for impact in IMPACT_ORDER
+    }
 
+    for result in results:
+        if result["decision"] == "exclude":
+            continue
+
+        impact = result["impact"].strip().casefold()
+        counts[impact] += 1
+
+    return counts
 
 def gene_summary(results: list[dict]) -> dict[str, dict]:
     """Per-gene summary, genes in alphabetical order.
@@ -112,8 +131,34 @@ def gene_summary(results: list[dict]) -> dict[str, dict]:
     Each value is {"total": n, "prioritize": a, "review": b, "exclude": c, "mean_depth": d}
     where mean_depth is the mean depth of ALL the gene's variants, rounded to 1 decimal.
     """
-    raise NotImplementedError("TODO: implement gene_summary")
+    summary = {}
+    depth_totals = {}
 
+    for result in results:
+        gene = result["gene"].strip()
+        decision = result["decision"]
+        depth = int(result["depth"])
+
+        if gene not in summary:
+            summary[gene] = {
+                "total": 0,
+                "prioritize": 0,
+                "review": 0,
+                "exclude": 0,
+                "mean_depth": 0.0,
+            }
+            depth_totals[gene] = 0
+
+        summary[gene]["total"] += 1
+        summary[gene][decision] += 1
+        depth_totals[gene] += depth
+
+    for gene in summary:
+        total = summary[gene]["total"]
+        mean_depth = depth_totals[gene] / total
+        summary[gene]["mean_depth"] = round(mean_depth, 1)
+
+    return dict(sorted(summary.items()))
 
 def rank_variants(results: list[dict], k: int) -> list[dict]:
     """Top k variants that were not excluded, best first.
