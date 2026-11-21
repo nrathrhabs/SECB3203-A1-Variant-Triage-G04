@@ -92,12 +92,27 @@ your choice that reach rules 3 to 6. Do it by hand BEFORE you run your code, the
 
 ## 5. Work plan
 
-Member: Nur Alia Aishah
+The group members and their assigned responsibilities are listed below:
 
-Assigned task: Implement decision_counts(), impact_counts() and gene_summary(). Prepare and maintain docs/design.md and record AI usage in AI_USE_LOG.md.
+Member 1: NUR ATHIRAH BINTI ABASA
 
-Review:Run relevant tests, check output and request teammate review.
+- Coordinates the group, manages the task list and GitHub repository.
+- Implements classify_variant() and triage().
+- Coordinates the group documentation.
 
+Member 2: NUR ALIA AISHAH BINTI NAZRI SAKRI
 
+- Prepares and maintains docs/design.md.
+- Implements decision_counts(), impact_counts() and gene_summary().
 
-The group will work on separate Git branches for assigned tasks. Each member will test their own functions before creating a pull request. Other group members will review the changes, check the test results and discuss any corrections before merging into the main branch.
+Member 3: AFINA SOLEHA BATRISYIA BINTI MOHD HISAFUDIN
+
+- Implements rank_variants(), results_to_csv() and build_report().
+
+Member 4: FAKHIRA ANISA BINTI MOHD RADZI
+
+- Develops tests/test_a1_triage.py.
+- Prepares README.md.
+- Performs testing and Ruff checks.
+
+Each member works on their assigned tasks using separate Git branches. Members test their own functions before creating pull requests. Other group members review the changes, check the test results and discuss any corrections before merging into the main branch.
