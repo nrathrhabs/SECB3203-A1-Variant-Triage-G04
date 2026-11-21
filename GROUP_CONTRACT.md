@@ -6,8 +6,8 @@ Complete this file in the first week, commit it, and do not delete the headings.
 
 ## 1. Group and members
 
-- Group ID: <for example G07>
-- Member 1: <full name>, <matric number>, <role for the first two weeks>
+- Group ID: G04
+- Member 1: NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152, implementer
 - Member 2: <full name>, <matric number>, <role for the first two weeks>
 - Member 3: <full name>, <matric number>, <role for the first two weeks>
 - Member 4: <full name>, <matric number>, <role for the first two weeks>
@@ -24,9 +24,12 @@ two weeks. <Write how and when your group rotates the roles.>
 <Explain how you decide, for example: we discuss in the weekly meeting, we try to agree, and if we
 cannot agree we vote, and the coordinator breaks a tie. Say where decisions are written down.>
 
+Our group makes decisions through discussion during weekly meetings and our group chat. We try to reach an agreement that is suitable for everyone. If we cannot agree, we will vote and the majority decision will be followed. The coordinator will help resolve any disagreements. All important decisions will be recorded in our group chat so that every member can refer to them.
+
 ## 4. Meetings and communication
 
 <Weekly meeting day and time, the chat channel you use, and how quickly a member answers.>
+Our group will have one meeting on 18 November 2026 at 2:00 PM to discuss project progress, task assignments and any problems faced by members. We will use WhatsApp as our main communication channel to share updates and communicate with each other. Members should respond to messages as soon as possible.
 
 ## 5. Rules for Git and for code
 
@@ -48,7 +51,7 @@ every member signs the log and this contract.
 
 ## 8. Signatures
 
-- Signed: <full name>, <matric number>, <date>
+- Signed: NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152, 19/11/2026
 - Signed: <full name>, <matric number>, <date>
 - Signed: <full name>, <matric number>, <date>
 - Signed: <full name>, <matric number>, <date>
