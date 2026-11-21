@@ -85,7 +85,24 @@ def rank_variants(results: list[dict], k: int) -> list[dict]:
     Raises:
         ValueError: if k is negative.
     """
-    raise NotImplementedError("TODO: implement rank_variants")
+    if k < 0:
+        raise ValueError("k must be non-negative")
+
+    candidates = [r for r in results if r["decision"] != "exclude"]
+
+    def _rank_key(r: dict) -> tuple:
+        impact_clean = r["impact"].strip().lower()
+        return(
+            DECISIONS.index(r["decision"]),
+            IMPACT_ORDER.index(impact_clean),
+            -int(r["quality"]),
+            -int(r["depth"]),
+            int(r["pos"]),
+        )
+
+    ranked = sorted(candidates, key=_rank_key)
+    return ranked[:k]
+
 
 
 def results_to_csv(results: list[dict]) -> str:
@@ -93,7 +110,14 @@ def results_to_csv(results: list[dict]) -> str:
 
     Every line ends with a newline. Reason text contains no commas, so no quoting is needed.
     """
-    raise NotImplementedError("TODO: implement results_to_csv")
+    lines = [",".join(CSV_COLUMNS)]
+
+    for r in results:
+        row_text = ",".join(str(r[col]) for col in CSV_COLUMNS)
+        lines.append(row_text)
+
+    return "\n".join(lines) + "\n"
+
 
 
 def build_report(results: list[dict], params: dict) -> str:
@@ -103,7 +127,24 @@ def build_report(results: list[dict], params: dict) -> str:
     'Variants: N', one 'decision: count' line per decision, a blank line,
     'Top K variants' and then 'rank. variant | gene | impact | decision' lines.
     """
-    raise NotImplementedError("TODO: implement build_report")
+    lines = [
+        "Variant triage report (synthetic teaching data)",
+        f"Thresholds: min_depth={params['min_depth']} min_quality={params['min_quality']}",
+        f"Priority genes: {', '.join(params['priority_genes'])}",
+        f"Variants: {len(results)}",
+    ]
+    for decision in DECISIONS:
+        count = sum(1 for r in results if r["decision"]==decision)
+        lines.append(f"{decision}:{count}")
+
+    k = params["top_k"]
+    lines.append("")
+    lines.append(f"Top {k} variants")
+
+    for rank, r in enumerate(rank_variants(results, k), start=1):
+        lines.append(f"{rank}. {r['variant']} | {r['gene']} | {r['impact']} | {r['decision']}")
+
+    return "\n".join(lines) + "\n"
 
 
 def main(argv: list[str] | None = None) -> int:
