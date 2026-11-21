@@ -1,7 +1,6 @@
 # Variant Triage Service (SECB3203 Assignment 1)
 
-> Replace the text in this template. The README must let a stranger install, run and test the
-> project with the exact commands below. All data are synthetic teaching data, not clinical data.
+> All data are synthetic teaching data, not clinical data.
 
 ## Group
 
@@ -20,21 +19,15 @@ This project is a variant triage service that analyses genetic variant records u
 
 ```
 python -m venv .venv
-<activate command for your system>
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
 ## Run
 
-<Write the exact command. The course command is: python src/a1_triage.py data/variants.csv data/params.json results>
-<Say which files appear in results/.>
-
-Run the service using:
 python src/a1_triage.py data/variants.csv data/params.json results
 
-The program saves its output files in the results/ directory. These files contain the triage results and summary information.
-
-
+- Files that appear in results/: triage.csv and report.txt
 
 ## Test and lint
 
@@ -45,38 +38,31 @@ ruff check src
 
 ## Our parameters
 
-Our thresholds, priority genes and top_k are in data/params.json (Minimum depth (min_depth): 12
-
-Minimum quality (min_quality): 80
-
-Priority genes: ATM, PTEN, EGFR, APC and BRCA2
-
-Top K (top_k): 5).
+Our thresholds, priority genes and top_k are in data/params.json (min_depth: 12, min_quality: 80, priority_genes: ["ATM", "PTEN", "EGFR", "APC", "BRCA2"], top_k: 5).
 They are read at run time and passed to the functions; they are not typed into the rules.
 
 
 ## Design
 
-<Link to docs/design.md and say in two sentences what it contains.>
+The design process is documented in docs/design.md. It contains the decomposition of the problem, the pseudocode/flowchart for the classification rules, a hand-trace table of the first few variants, and the test plan.
 
 ## Limitations
 
-<At least two honest limitations, for example: rules use depth, quality and impact only; the data are synthetic.>
-The triage decisions are based only on the available depth, quality, gene and impact information.
+- The triage rules rely only on basic metrics (depth, quality, gene priority, and impact) and do not evaluate complex biological interactions or population frequencies.
 
-The project uses synthetic teaching data and must not be used for real clinical decisions.
+- The data provided is synthetic and for teaching purposes only. This tool is not clinical advice.
 
-The rule-based approach may not cover every possible genetic variant or clinical situation.
-
+- The tool relies entirely on the `impact` column provided in the CSV. It cannot predict impact from the raw `ref` and `alt` nucleotide changes.
 
 ## Who did what
 
 | Member | Main contributions | Commits |
 |---|---|---|
-| NUR ALIA AISHAH BINTI NAZRI SAKRI | NAZRI SAKRI
-
-decision_counts(), impact_counts(), gene_summary() in src/a1_triage.py; docs/design.md | <number> |
+| NUR ATHIRAH BINTI ABASA (A24CS0158) | `src/a1_triage.py` (`classify_variant()`, `triage()`), `GROUP_CONTRACT.md`, `AI_USE_LOG.md` | 4 |
+| NUR ALIA AISHAH BINTI NAZRI SAKRI (A24CS0152) | `src/a1_triage.py` (`decision_counts()`, `impact_counts()`, `gene_summary()`), `docs/design.md`, `AI_USE_LOG.md` | 3 |
+| AFINA SOLEHA BATRISYIA BINTI MOHD HISAFUDIN (A24CS0034) | `src/a1_triage.py` (`rank_variants()`, `results_to_csv()`, `build_report()`), `AI_USE_LOG.md` | 3 |
+| FAKHIRA ANISA BINTI MOHD RADZI (A24CS0070) | `tests/test_a1_triage.py`, `README.md`, `AI_USE_LOG.md` | 4 |
 
 ## AI use
 
-AI was used as a learning and assistance tool during the assignment. Details of the interactions are recorded in AI_USE_LOG.md.
+The group used AI at Level 1 (Tutor) to assist with understanding assignment requirements, formatting tests, and debugging. See AI_USE_LOG.md for full details and signatures.

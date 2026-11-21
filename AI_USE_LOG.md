@@ -6,16 +6,16 @@
 - Assessment: Assignment 1
 - Group Members: 
     - NUR ATHIRAH BINTI ABASA, A24CS0158
-    - NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152
+    - NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152 
     - <full name, matric>
-    - <full name, matric>
+    - FAKHIRA ANISA BINTI MOHD RADZI, A24CS0070
 - Group ID: G04
 - AI level: 1
 - Tools cited: 
     - Member 1: OpenAI (2026). ChatGPT (GPT-6). Retrieved 21 November 2026 from https://chatgpt.com
     - Member 2: OpenAI (2026). ChatGPT (GPT-6). Retrieved 21 November 2026 from https://chatgpt.com
     - Member 3: <UTM format, e.g. OpenAI (2026). ChatGPT (GPT-5). Retrieved 12 October 2026 from https://chat.openai.com>
-    - Member 4: <UTM format, e.g. OpenAI (2026). ChatGPT (GPT-5). Retrieved 12 October 2026 from https://chat.openai.com>
+    - Member 4: DeepSeek (2026). DeepSeek-V4.1-Flash. Retrieved 22 November 2026 from https://www.deepseek.com
 
 ## Declaration (tick exactly one)
 
@@ -67,7 +67,7 @@
 - My change: Used the explanation to understand how decision counts should be organised before implementing the function.
 - Used in: src/a1_triage.py - decision_counts().
 
-## Entry 5 - Member 5: Full Name
+## Entry 5 - Member 3: Full Name
 
 - Date: <Date and time of the interaction>
 - Tool: <Tool name, version, access date and URL (UTM citation format)>
@@ -78,15 +78,26 @@
 - My change: <What you accepted, rejected or rewrote, and why>
 - Used in: <File and function, or report section, where it ended up (or 'not used')>
 
-## Entry  - Member 4: Full Name
 
-- Date: <Date and time of the interaction>
-- Tool: <Tool name, version, access date and URL (UTM citation format)>
-- Purpose: <One of: explain, hint, review, debug, generate-code, generate-text, tests-plan, other>
-- Prompt: <The exact prompt you typed (paste it)>
-- Output: <What the AI gave back, in 1 to 3 lines (attach the full text if you used it)>
-- Verified by: <How you checked it: ran pytest, read the docs, compared with data, asked lecturer>
-- My change: <What you accepted, rejected or rewrote, and why>
-- Used in: <File and function, or report section, where it ended up (or 'not used')>
+## Entry 6 - Member 4: FAKHIRA ANISA BINTI MOHD RADZI
 
-<!-- Copy the whole 'Entry' block for each extra interaction: ## Entry 2, ## Entry 3 ... -->
+- Date: 22/11/2026, 12:34 AM
+- Tool: DeepSeek (2026). DeepSeek-V4.1-Flash. Retrieved 22 November 2026 from https://www.deepseek.com
+- Purpose: explain
+- Prompt: "do i really need to test case folding and what boundary cases should i use for the thresholds"
+- Output: It explained that I needed tests for 11/12/13 for depth and 79/80/81 for quality. It also confirmed that case folding (testing `aTm`) is strictly required by the assignment brief.
+- Verified by: Re-read the assignment requirements and ran pytest to test all functions
+- My change: Wrote at least 8 including 3 boundary test functions using actual params.json values
+- Used in: tests/test_a1_triage.py
+
+## Entry 7 - Member 4: FAKHIRA ANISA BINTI MOHD RADZI
+
+- Date: 22/11/2026 3:23 AM
+- Tool: DeepSeek (2026). DeepSeek-V4.1-Flash. Retrieved 22 November 2026 from https://www.deepseek.com
+- Purpose: review
+- Prompt: "i saw a pylance warning that the reason variable is not accessed in boundary tests. do i really need to assert the reason, or can i just ignore it?"
+- Output: It explained that while the test would pass, asserting the reason protects the group's marks for R2 (recording a reason for every decision). It suggested either asserting a keyword like `assert "depth" in reason` or renaming the variable to `_` to suppress the warning.
+- Verified by: I added the `assert "depth" in reason` and `assert "quality" in reason` lines to my boundary tests, confirmed the Pylance warning disappeared, and ran pytest.
+- My change: I accepted the suggestion to assert the reason and added assertions checking for the specific rule words (depth/quality).
+- Used in: tests/test_a1_triage.py
+
