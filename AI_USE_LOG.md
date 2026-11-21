@@ -13,7 +13,7 @@
 - AI level: 1
 - Tools cited: 
     - Member 1: OpenAI (2026). ChatGPT (GPT-6). Retrieved 21 November 2026 from https://chatgpt.com
-    - Member 2: <UTM format, e.g. OpenAI (2026). ChatGPT (GPT-5). Retrieved 12 October 2026 from https://chat.openai.com>
+    - Member 2: OpenAI (2026). ChatGPT (GPT-6). Retrieved 21 November 2026 from https://chatgpt.com
     - Member 3: <UTM format, e.g. OpenAI (2026). ChatGPT (GPT-5). Retrieved 12 October 2026 from https://chat.openai.com>
     - Member 4: DeepSeek (2026). DeepSeek-V4.1-Flash. Retrieved 22 November 2026 from https://www.deepseek.com
 
@@ -33,18 +33,41 @@
 - My change: Used the explanation to understand the requirements and independently implemented the function.
 - Used in: src/a1_triage.py — classify_variant(), triage()
 
-## Entry 2 - Member 2: Full Name
 
-- Date: <Date and time of the interaction>
-- Tool: <Tool name, version, access date and URL (UTM citation format)>
-- Purpose: <One of: explain, hint, review, debug, generate-code, generate-text, tests-plan, other>
-- Prompt: <The exact prompt you typed (paste it)>
-- Output: <What the AI gave back, in 1 to 3 lines (attach the full text if you used it)>
-- Verified by: <How you checked it: ran pytest, read the docs, compared with data, asked lecturer>
-- My change: <What you accepted, rejected or rewrote, and why>
-- Used in: <File and function, or report section, where it ended up (or 'not used')>
+## Entry 2 - Member 2: NUR ALIA AISHAH BINTI NAZRI SAKRI
 
-## Entry 3 - Member 3: Full Name
+- Date: 22 NOVEMBER 2026
+- Tool:  OpenAI ChatGPT (GPT-6), accessed 22 November 2026, https://chat.openai.com
+- Purpose: explain
+- Prompt: "How can I count variant impacts while excluding variants with an exclude decision? Can you explain the logic step by step?"
+- Output: AI explained how to loop through a list of dictionaries, skip excluded variants and count the remaining impact categories.
+- Verified by: Compared the explanation with the impact counting requirements in the assignment.
+- My change: Used the explanation to understand the filtering and counting process for my function.
+- Used in: src/a1_triage.py - impact_counts().
+
+## Entry 3 - Member 2: NUR ALIA AISHAH BINTI NAZRI SAKRI
+
+- Date: 22 NOVEMBER 2026
+- Tool:  OpenAI ChatGPT (GPT-6), accessed 22 November 2026, https://chat.openai.com
+- Purpose: explain
+- Prompt: "How do I group variants by gene and calculate the average depth for each gene using Python dictionaries?"
+- Output: AI explained how to group records, calculate totals and counts, and find the mean depth for each gene.
+- Verified by: Checked the explanation using the variant records in data/variants.csv.
+- My change:  Applied the concept to understand how gene summaries and mean depth calculations work.
+- Used in: src/a1_triage.py - gene_summary().
+
+## Entry 4 - Member 2: NUR ALIA AISHAH BINTI NAZRI SAKRI
+
+- Date: 22 NOVEMBER 2026
+- Tool:  OpenAI ChatGPT (GPT-6), accessed 22 November 2026, https://chat.openai.com
+- Purpose: explain
+- Prompt: "explain how dictionary data works in Python and how I can use it to count the number of variants under each decision?"
+- Output: AI explained how dictionaries store key-value pairs and how to update counts using loops.
+- Verified by: Reviewed the explanation and compared it with the decision categories in the assignment.
+- My change: Used the explanation to understand how decision counts should be organised before implementing the function.
+- Used in: src/a1_triage.py - decision_counts().
+
+## Entry 5 - Member 5: Full Name
 
 - Date: <Date and time of the interaction>
 - Tool: <Tool name, version, access date and URL (UTM citation format)>

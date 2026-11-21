@@ -28,6 +28,8 @@ If an agreement cannot be reached, the group will use a majority vote. If there 
 
 Important decisions, task changes and agreed actions will be documented in the group's WhatsApp group.
 
+Our group makes decisions through discussion during weekly meetings and our group chat. We try to reach an agreement that is suitable for everyone. If we cannot agree, we will vote and the majority decision will be followed. The coordinator will help resolve any disagreements. All important decisions will be recorded in our group chat so that every member can refer to them.
+
 ## 4. Meetings and communication
 
 The group will communicate through WhatsApp or sometimes on agreed online meeting platform for discussions, updates and task coordination.
@@ -65,6 +67,7 @@ AI tools will only be used within the limitations stated in the assignment brief
 
 ## 8. Signatures
 
+- Signed: NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152, 19/11/2026
 - Signed: NUR ATHIRAH BINTI ABASA. A24CS0158, 21/11/2026
 - Signed: <full name>, <matric number>, <date>
 - Signed: <full name>, <matric number>, <date>

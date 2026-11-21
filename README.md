@@ -5,11 +5,15 @@
 ## Group
 
 - Group ID: G04
-- Members: NUR ATHIRAH BINTI ABASA (A24CS0158), NUR ALIA AISHAH BINTI NAZRI SAKRI (A24CS0152), AFINA SOLEHA BATRISYIA BINTI MOHD HISAFUDIN (A24CS0034), FAKHIRA ANISA BINTI MOHD RADZI (A24CS0070)
+- Members: NUR ATHIRAH BINTI ABASA (A24CS0158)
+           NUR ALIA AISHAH BINTI NAZRI SAKRI (A24CS0152)
+           FAKHIRA ANISA BINTI MOHD RADZI (A24CS0070)
+           AFINA SOLEHA BATRISYIA BINTI MOHD HISAFUDIN (A24CS0034)
+
 
 ## What this project does
 
-This project is a variant triage service designed to process clinical genomic variant calls. It takes a CSV of variant records and a JSON of parameters (thresholds and priority genes) as input. It applies an ordered set of rules based on depth, quality, and gene impact to classify each variant as "prioritize", "review", or "exclude". The output is a filtered CSV and a formatted text report summarising the decisions.
+This project is a variant triage service that analyses genetic variant records using predefined rules. It takes a CSV file containing variant information and a JSON file containing parameters such as minimum depth, minimum quality, priority genes and top_k. The service classifies variants into different decisions based on these rules. It also produces summary information to help users understand the triage results.
 
 ## Set up
 
@@ -36,6 +40,7 @@ ruff check src
 
 Our thresholds, priority genes and top_k are in data/params.json (min_depth: 12, min_quality: 80, priority_genes: ["ATM", "PTEN", "EGFR", "APC", "BRCA2"], top_k: 5).
 They are read at run time and passed to the functions; they are not typed into the rules.
+
 
 ## Design
 
