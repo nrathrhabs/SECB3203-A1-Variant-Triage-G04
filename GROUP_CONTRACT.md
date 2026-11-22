@@ -69,6 +69,5 @@ AI tools will only be used within the limitations stated in the assignment brief
 
 - Signed: NUR ALIA AISHAH BINTI NAZRI SAKRI, A24CS0152, 19/11/2026
 - Signed: NUR ATHIRAH BINTI ABASA. A24CS0158, 21/11/2026
-- Signed: <full name>, <matric number>, <date>
-- Signed: <full name>, <matric number>, <date>
+- Signed: AFINA SOLEHA BATRISYIA BINTI MOHD HISAFUDIN, A24CS0034, 22/11/2026
 - Signed: FAKHIRA ANISA BINTI MOHD RADZI, A24CS0070, 22/11/2026
